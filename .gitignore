@@ -1,6 +1,9 @@
 # VSCode settings
 .vscode
 
+# .docx temporary file
+.~lock.*.docx#
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
