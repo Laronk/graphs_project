@@ -102,3 +102,5 @@ Each file is named according to the test in with it was created with the test nu
 Each file contains the image of a tested graph with Dijkstra's path marked in red for a particular test case.
 
 ## Read my analysis on Dijkstra's algorithm real-world applications - file `algorithm analysis.md`
+
+## Answers to theoretical assignment part are in the file `Jan_Karpiuk_406238.pdf`
