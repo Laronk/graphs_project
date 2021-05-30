@@ -12,8 +12,8 @@ class MyDijkstraImplementationTestCase(unittest.TestCase):
     def setUp(self):
         self.graphs = []
         self.weight_range = (1, 9)
-        self.test_images_folder = "./test_images"
-        self.test_dataset_path = "./test_dataset.json"
+        self.test_images_folder = "Dijkstra’s algorithm/test_images"
+        self.test_dataset_path = "Dijkstra’s algorithm/test_dataset.json"
         nx.graphviz_layout = graphviz_layout
         self.load_testdataset()
 
