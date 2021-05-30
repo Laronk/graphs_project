@@ -94,6 +94,6 @@ class DijkstraSolver:
         # minimum distance from source to destination node
         # path (node list) from source to destination node of min distance
         return {
-            "min_dist": dist[dest],
+            "length": dist[dest],
             "path": paths[dest],
         }
