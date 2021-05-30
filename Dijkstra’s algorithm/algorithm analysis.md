@@ -12,5 +12,13 @@ The algorithm exists in many variants. Dijkstra's original algorithm found the s
 * calculating optimal long-distance footpaths in Ethiopia and contrast them with the situation on the ground.
 * network routing protocols, most notably **IS-IS (Intermediate System to Intermediate System)** and **Open Shortest Path First (OSPF)**
 * employed as a subroutine in other algorithms such as Johnson's.
+* game development - path finding for eg. enemy entities
+* It is most widely used in finding shortest possible distance and show directions between 2 geographical locations such as in Google Maps.
+* Social Networking Applications
+* Widely used in routing of data in networking and telecommunication domains for minimizing the delay occurred for transmission.
+* Robotic Path: the robot/drone moves in the ordered direction by following the shortest path to keep delivering the package in a minimum amount of time.
 
 ### Current methods of solving the problem (addressed by the algorithm)
+
+* game development - A* algorithm seems to be more frequently in use nowadays
+* Dijkstra’s Algorithm doesnt work for graphs with negative edges. Algorithms like Bellman-Ford Algorithm will be used for such cases.
