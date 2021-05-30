@@ -7,7 +7,7 @@ import random
 import copy
 from networkx.drawing.nx_agraph import graphviz_layout
 import unittest
-from algorithm.dijkstra import Graph
+from algorithm.dijkstra import DijkstraSolver
 
 
 class MyDijkstraImplementationTestCase(unittest.TestCase):
@@ -21,24 +21,16 @@ class MyDijkstraImplementationTestCase(unittest.TestCase):
     def generate_new_random_graph(self):
         # generate random vertecies count for the graph
         self.n = random.randint(6, 10)
-
         # generate random entry and exit nodes for the dijkstra's algorithm
         self.entry_node = 0
         self.exit_node = random.randint(1, self.n - 1)
-
         # generate new complete graph with self.n vertecies
         self.G = hkn_harary_graph(4, self.n)
-
         # generate random weights for Graph edges
         for (u, v, w) in self.G.edges(data=True):
             w["weight"] = random.randint(1, 10)
-
-        # get adjacency matrix from Graph
-        self.adjacency_matrix = nx.to_numpy_matrix(self.G, weight="weight")
-
         # create Graph using my implementation of the dijkstra's algorithm
-        self.test_G = Graph(self.n)
-        self.test_G.graph = np.copy(self.adjacency_matrix)
+        self.test_G = DijkstraSolver(self.G.copy())
 
     def draw_graph(self, output_file_name, size=7, bgcolor="white", prog="circo"):
         # draw randomly generated graph for the current test case
@@ -75,7 +67,7 @@ class MyDijkstraImplementationTestCase(unittest.TestCase):
                     self.G, source=self.entry_node, target=self.exit_node
                 )
                 # get the dijkstra's path length using my implementation of the algorithm
-                test_path_length = self.test_G.dijkstra(
+                test_path_length = self.test_G.get_min_path(
                     src=self.entry_node, dest=self.exit_node
                 )["min_dist"]
                 # compare correct and test path lengths
@@ -102,21 +94,10 @@ class MyDijkstraImplementationTestCase(unittest.TestCase):
                 correct_path = nx.dijkstra_path(
                     self.G, source=self.entry_node, target=self.exit_node
                 )
-                # get the correct path length
-                correct_path_length = sum(
-                    [
-                        self.G[u][v]["weight"]
-                        for u, v in zip(correct_path, correct_path[1:])
-                    ]
-                )
                 # get the dijkstra's path length using my implementation of the algorithm
-                test_path = self.test_G.dijkstra(
+                test_path = self.test_G.get_min_path(
                     src=self.entry_node, dest=self.exit_node
                 )["path"]
-                # get the test path length
-                test_path_length = sum(
-                    [self.test_G.graph[u][v] for u, v in zip(test_path, test_path[1:])]
-                )
                 # compare correct and test path lengths
                 self.assertEqual(correct_path, test_path, "Incorrect dijkstra path")
 
